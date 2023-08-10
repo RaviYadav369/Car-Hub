@@ -1,7 +1,12 @@
+"use client";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
+import CustomButton from "./CustomButton";
+import CarCardDetails from "./CarCardDetails";
 
 const CarCard = ({ car }) => {
+  const [IsOpen, setIsOpen] = useState(false);
+  // console.log(IsOpen);
   return (
     <div className="car-card group">
       <div className="car-card__content">
@@ -55,19 +60,21 @@ const CarCard = ({ car }) => {
           </div>
         </div>
         <div className="car-card__btn-container ">
-          <button className="custom-btn w-full py-[16px] rounded-full bg-primary-blue ">
-            <span className="text-white">View More</span>
-            <div className="relative -right-28 h-6 w-6">
-              <Image
-                src="/right-arrow.svg"
-                fill
-                alt="right-button"
-                className=" object-contain text-white"
-              />
-            </div>
-          </button>
+          <CustomButton
+            title="View More"
+            
+            containerStyles="custom-btn text-white w-full py-[16px] rounded-full bg-primary-blue "
+            textStyles="text-white font-bold text-[14px] leading-[17px]"
+            rightIcon="/right-arrow.svg"
+            handleClick={() => setIsOpen(true)}
+          />
         </div>
       </div>
+      <CarCardDetails
+        IsOpen={IsOpen}
+        closeModal={() => setIsOpen(false)}
+        cars={car}
+      />
     </div>
   );
 };

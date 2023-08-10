@@ -41,7 +41,7 @@ const SearchMenufacture = ({ menufacturer, setmenufacturer }) => {
             afterLeave={() => setquery("")}
           >
             <Combobox.Options
-              className=" m-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-1 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+              className="absolute m-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-1 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
               static
             >
               {filteredManufacturer.length === 0 && query !== "" ? (

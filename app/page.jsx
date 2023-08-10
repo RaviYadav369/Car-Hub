@@ -1,5 +1,6 @@
 import { Hero, SearchBar, CustomFilter, CustomButton } from "@components";
 import CarContainer from "@components/CarContainer";
+import { fuels, yearsOfProduction } from "@constants";
 import React from "react";
 
 const Home = () => {
@@ -15,8 +16,8 @@ const Home = () => {
           <div className="home__filters">
             <SearchBar />
             <div className="home__filter-container">
-              <CustomFilter title="fuel" />
-              <CustomFilter title="year" />
+              <CustomFilter title="fuel" options={fuels} />
+              <CustomFilter title="year" options={yearsOfProduction} />
             </div>
           </div>
           <CarContainer />

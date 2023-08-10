@@ -1,10 +1,18 @@
-"use client";
+// "use client";
 import { fetchCarsData } from "@utils/fetchcars";
 import React from "react";
 import CarCard from "./CarCard";
 
-const CarContainer = async () => {
-  const allCars = await fetchCarsData();
+const CarContainer = async ({searchParams}) => {
+  const allCars = await fetchCarsData(
+    {
+      manufacturer: searchParams?.manufacturer || "",
+      year: searchParams?.year || 2022,
+      fuel: searchParams?.fuel || "",
+      limit: searchParams?.limit || 10,
+      model: searchParams?.model || "",
+    }
+  );
   const isDataempty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
   // console.log(cars);
   return (
